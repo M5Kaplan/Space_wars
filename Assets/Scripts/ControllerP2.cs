@@ -6,7 +6,8 @@ using UnityEngine;
 public class ControllerP2 : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField]GameObject SpaceShip1;
+    
+    [SerializeField] ParticleSystem Gas2;
 
     [SerializeField] float PowerOfMainThrust = 1f;
     [SerializeField] float PowerOfSideThrust = 5f;
@@ -26,6 +27,7 @@ public class ControllerP2 : MonoBehaviour
         if (Input.GetKey(KeyCode.UpArrow))
         {
             rb.AddRelativeForce(0, 1, 0 * PowerOfMainThrust * Time.deltaTime);
+            Gas2.Play();
         }
 
         if (Input.GetKey(KeyCode.RightArrow))

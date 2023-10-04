@@ -8,6 +8,7 @@ TagManager:
   - Obstacle
   - Player1
   - Player2
+  - Killer
   layers:
   - Default
   - TransparentFX
