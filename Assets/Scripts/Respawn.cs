@@ -10,8 +10,14 @@ public class Respawn : MonoBehaviour
     [SerializeField] GameObject SpaceShip2_Prefab;
     private GameObject SpaceShip2_Current;
 
-    Vector3 StartingPositionP1 = new Vector3(0, 1.25f, -20);
-    Vector3 StartingPositionP2 = new Vector3(0, 1.25f, 20);
+
+
+    
+    [SerializeField]Vector3 StartingPositionP1 = new Vector3(0, 1.25f, -20);
+    [SerializeField]Vector3 StartingPositionP2 = new Vector3(0, 1.25f, 20);
+
+    
+
     void Start()
     {
         SpawnP1();

@@ -5,8 +5,10 @@ using UnityEngine;
 public class KillerObject : MonoBehaviour
 {
     private bool isCooldown = true;
+
     [SerializeField] float Cooldown = 5f;
     [SerializeField] float SpinSpeed = 5f;
+
     private MeshRenderer mR;
     private Collider collide;
 

@@ -3,12 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerP1 : MonoBehaviour
+public class Controller : MonoBehaviour
 {
     Rigidbody rb;
+    AudioSource As;
 
     [SerializeField] ParticleSystem Gas1;
     [SerializeField] ParticleSystem Gas2;
+
+    //[SerializeField] AudioClip Gas1sfx;
+    //[SerializeField] AudioClip Gas2sfx;
 
     [SerializeField] bool SSP1;
 
@@ -18,9 +22,10 @@ public class ControllerP1 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        As = GetComponent<AudioSource>();
     }
 
-   
+
     void Update()
     {
         ThrustMovement();       
@@ -34,7 +39,9 @@ public class ControllerP1 : MonoBehaviour
             {
                 rb.AddRelativeForce(0, 1, 0 * PowerOfMainThrust * Time.deltaTime);
                 Gas1.Play();
-                //SoundClip
+                if (!As.isPlaying) { As.Play(); }
+
+
             }
 
             if (Input.GetKey(KeyCode.D))
@@ -57,6 +64,7 @@ public class ControllerP1 : MonoBehaviour
             {
                 rb.AddRelativeForce(0, 1, 0 * PowerOfMainThrust * Time.deltaTime);
                 Gas2.Play();
+                if (!As.isPlaying) { As.Play(); }
             }
 
             if (Input.GetKey(KeyCode.RightArrow))

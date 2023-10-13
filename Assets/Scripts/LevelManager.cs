@@ -5,12 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    
+
     public GameObject player1;
     public GameObject player2;
 
     private bool player1Finished = false;
     private bool player2Finished = false;
 
+    private void Start()
+    {
+        
+    }
     void Update()
     {
         if (player1Finished && player2Finished)
@@ -33,10 +39,12 @@ public class LevelManager : MonoBehaviour
         if (playerTag == "Player1")
         {
             player1Finished = true;
+            
         }
         else if (playerTag == "Player2")
         {
             player2Finished = true;
+            
         }
     }
 }

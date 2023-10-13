@@ -1,12 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class CollisionManager : MonoBehaviour
 {
     private LevelManager levelManager;
+    
+
+
     [SerializeField] GameObject Player;
+
+    [SerializeField] ParticleSystem explosion;
+    [SerializeField] AudioClip explosionSound;
+
 
     void Start()
     {
+
+        
         levelManager = GameObject.FindObjectOfType<LevelManager>();
     }
     private void OnCollisionEnter(Collision collision)
@@ -20,19 +30,31 @@ public class CollisionManager : MonoBehaviour
                 Debug.Log("Finish");
                 levelManager.SetPlayerFinished(gameObject.tag);
                 gameObject.SetActive(false);
+                
                 break;
             case "Obstacle":
                 Debug.Log("Obstacle");
                 Destroy(Player);
+                Expolosion();
+
                 break;
             default:
                 Debug.LogWarning("Unknown object");
                 break;
         }
+    }
+
+    void Expolosion()
+    {
 
 
+        AudioSource.PlayClipAtPoint(explosionSound,transform.position);
+        Instantiate(explosion, transform.position, Quaternion.identity);
+        
     }
 }
+
+
 
 
 
